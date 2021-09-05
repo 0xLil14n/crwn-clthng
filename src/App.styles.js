@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const StyledApp = styled.div`
   font-family: "Open Sans Condensed";
   padding: 20px 80px;
+  a {
+    color: black;
+  text-decoration: none;
+  }
 `;
 export const StyledAppHeader = styled.div`
   background-color: #282c34;
@@ -14,9 +18,7 @@ export const StyledAppHeader = styled.div`
   font-size: calc(10px + 2vmin);
   color: white;
 `;
-export const StyledAppLink = styled.a`
-  color: #61dafb;
-`;
+
 export const StyledAppLogo = styled.div`
   height: 40vmin;
   pointer-events: none;

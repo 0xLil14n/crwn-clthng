@@ -4,6 +4,7 @@ import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import { StyledApp } from "./App.styles";
 import { Route, Switch } from "react-router-dom";
+import Header from "./components/header/header.component";
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <StyledApp>
+        <Header/>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
