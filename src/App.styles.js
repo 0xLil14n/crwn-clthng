@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledApp = styled.div`
-  text-align: center;
   font-family: "Open Sans Condensed";
+  padding: 20px 80px;
 `;
 export const StyledAppHeader = styled.div`
   background-color: #282c34;
