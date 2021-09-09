@@ -2,7 +2,8 @@ import React from "react";
 import { StyledSignIn } from "./sign-in.style";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import { signInWithGoogle } from "../firebase/firebase.utils";
+import { auth } from "../firebase/firebase.utils";
 class SignIn extends React.Component {
   constructor() {
     super();
@@ -21,6 +22,7 @@ class SignIn extends React.Component {
     const { value, name } = event.target;
     this.setState({ [name]: value });
   };
+
   render() {
     return (
       <StyledSignIn>
@@ -43,7 +45,9 @@ class SignIn extends React.Component {
             label="Password"
           />
           <CustomButton type="submit">Sign In</CustomButton>
-          <CustomButton onClick={signInWithGoogle}>Sign In With Google</CustomButton>
+          <CustomButton onClick={signInWithGoogle}>
+            Sign In With Google
+          </CustomButton>
         </form>
       </StyledSignIn>
     );

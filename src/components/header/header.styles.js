@@ -19,7 +19,7 @@ export const StyledOptionLink = styled(Link)`
   padding: 10px 15px;
 `;
 
-export const StyledOptions = styled(Link)`
+export const StyledOptions = styled.div`
   width: 50%;
   height: 100%;
   display: flex;
