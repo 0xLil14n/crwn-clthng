@@ -20,4 +20,15 @@ export const StyledButton = styled.button`
     color: black;
     border: 1px solid black;
   }
+  ${({ isGoogleSignIn }) =>
+    isGoogleSignIn
+      ? `
+    background-color: #4285f4;
+    color: white;
+    &: hover {
+        background-color: #357ae8;
+        border: none;
+    }
+  `
+      : ``}
 `;

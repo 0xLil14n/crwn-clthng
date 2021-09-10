@@ -26,4 +26,9 @@ export const StyledOptions = styled.div`
   align-items: center;
   justify-content: flex-end;
 `;
+
+export const StyledOption = styled.div`
+  padding: 10px 15px;
+  cursor: pointer;
+`;
 export const StyledLogo = styled(Logo)``;

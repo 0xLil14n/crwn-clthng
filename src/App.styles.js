@@ -7,6 +7,9 @@ export const StyledApp = styled.div`
     color: black;
   text-decoration: none;
   }
+  * {
+    box-sizing: border-box;
+  }
 `;
 export const StyledAppHeader = styled.div`
   background-color: #282c34;
@@ -23,3 +26,4 @@ export const StyledAppLogo = styled.div`
   height: 40vmin;
   pointer-events: none;
 `;
+
