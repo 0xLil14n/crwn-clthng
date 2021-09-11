@@ -2,7 +2,7 @@ import firebase, { initializeApp } from "firebase/app";
 import "firebase/firestore";
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 
 // Required for side-effects
 require("firebase/firestore");
@@ -53,5 +53,4 @@ provider.setCustomParameters({ prompt: "select_account" });
 // always trigger google pop up whenever we use the google auth provider for authentication + sign-in
 
 export const signInWithGoogle = () => signInWithPopup(auth, provider);
-
 export default firebaseApp;
