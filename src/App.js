@@ -6,7 +6,7 @@ import { StyledApp } from "./App.styles";
 import { Route, Switch } from "react-router-dom";
 import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
-import { auth } from "./components/firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./components/firebase/firebase.utils";
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +19,8 @@ class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
+      createUserProfileDocument(user);
       this.setState({ currentUser: user });
       console.log(user);
     });
