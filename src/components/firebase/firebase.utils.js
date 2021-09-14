@@ -1,7 +1,7 @@
 import firebase, { initializeApp } from "firebase/app";
 import "firebase/firestore";
 
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 
 // Required for side-effects
@@ -30,7 +30,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   console.log("docSnap: ", docSnap);
   console.log("userRef: ", userRef);
   if (!docSnap.exists()) {
-    console.log("asdfasdf");
     const { displayName, email } = userAuth;
     const createdAt = new Date();
 

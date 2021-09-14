@@ -2,7 +2,9 @@ import React from "react";
 import { StyledSignIn, StyledButtonContainer } from "./sign-in.style";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
-import { signInWithGoogle } from "../firebase/firebase.utils";
+import { signInWithGoogle, auth } from "../firebase/firebase.utils";
+import { signInWithEmailAndPassword } from "@firebase/auth";
+
 class SignIn extends React.Component {
   constructor() {
     super();
@@ -12,9 +14,16 @@ class SignIn extends React.Component {
     };
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    this.setState({ email: "", password: "" });
+    console.log("handling submit");
+    const { email, password } = this.state;
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      this.setState({ email: "", password: "" });
+    } catch (e) {
+      console.log("Error logging in: ", e);
+    }
   };
 
   handleChange = (event) => {
@@ -23,11 +32,24 @@ class SignIn extends React.Component {
   };
 
   render() {
+    const inputs = ["email", "password"];
     return (
       <StyledSignIn>
         <h2 class="title">I already have an account</h2>
         <span class="title">Sign in with your email and password</span>
         <form onSubmit={this.handleSubmit}>
+          {inputs.map((input) => (
+            <>
+              <FormInput
+                handleChange={this.handleChange}
+                name={input}
+                value={this.state.email}
+                required={true}
+                label={input}
+              />
+            </>
+          ))}
+
           <FormInput
             handleChange={this.handleChange}
             name="email"
