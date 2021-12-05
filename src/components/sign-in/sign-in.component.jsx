@@ -35,8 +35,8 @@ class SignIn extends React.Component {
     const inputs = ["email", "password"];
     return (
       <StyledSignIn>
-        <h2 class="title">I already have an account</h2>
-        <span class="title">Sign in with your email and password</span>
+        <h2 >I already have an account</h2>
+        <span >Sign in with your email and password</span>
         <form onSubmit={this.handleSubmit}>
           {inputs.map((input) => (
             <>
