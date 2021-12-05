@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import React from "react";
+import { connect } from "react-redux";
 import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import { StyledApp } from "./App.styles";
@@ -63,4 +64,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default connect()(App);
