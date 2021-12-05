@@ -25,6 +25,7 @@ const Header = ({ currentUser }) => (
     </StyledOptions>
   </StyledHeader>
 );
+
 const mapStateToProps = state => ({
   currentUser: state.user.currentUser
 });
