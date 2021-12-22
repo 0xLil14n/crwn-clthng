@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledBackgroundImage = styled.div`
   height: 100%;
@@ -48,7 +48,7 @@ export const StyledMenuItem = styled.div`
     margin-left: 7.5px;
   }
 
-  height: ${(props) => (props.size == "large" ? "380px" : "240px")};
+  height: ${(props) => (props.size == 'large' ? '380px' : '240px')};
 
   &:hover {
     cursor: pointer;

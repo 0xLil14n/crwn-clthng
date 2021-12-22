@@ -1,5 +1,5 @@
-import React from "react";
-import {connect} from 'react-redux';
+import React from 'react';
+import { connect } from 'react-redux';
 import {
   StyledHeader,
   StyledOptionLink,
@@ -7,9 +7,9 @@ import {
   StyledLogo,
   StyledOptions,
   StyledOption,
-} from "./header.styles";
-import { auth } from "../../components/firebase/firebase.utils";
-const Header = ({ currentUser }) => (
+} from './header.styles';
+import { auth } from '../../components/firebase/firebase.utils';
+const Header = ({ currentUser }: any) => (
   <StyledHeader>
     <StyledLink to="/">
       <StyledLogo />
@@ -26,8 +26,8 @@ const Header = ({ currentUser }) => (
   </StyledHeader>
 );
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
 });
 
 export default connect(mapStateToProps)(Header);

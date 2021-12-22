@@ -1,6 +1,6 @@
-import styled from "styled-components";
-const subColor = "grey";
-const mainColor = "black";
+import styled from 'styled-components';
+const subColor = 'grey';
+const mainColor = 'black';
 const shrinkLabel = `
     top: -14px;
     font-size: 12px;
@@ -23,7 +23,7 @@ export const StyledInput = styled.input`
     outline: none;
   }
 
-  ${({ type }) => type == "password" && "letter-spacing: 0.3em;"}
+  ${({ type }) => type == 'password' && 'letter-spacing: 0.3em;'}
 `;
 export const StyledGroup = styled.div`
   position: relative;
@@ -39,4 +39,4 @@ export const StyledLabel = styled.label`
   top: 10px;
   transition: 300ms ease all;
   ${({ length }) => length && shrinkLabel}
-  `;
+`;

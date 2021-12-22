@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import {
   StyledCollectionPreview,
   StyledPreview,
-  StyledTitle
-} from "./collection-preview.styles";
-import CollectionItem from "../collection-item/collection-item.component";
-const CollectionPreview = ({ title, items }) => {
+  StyledTitle,
+} from './collection-preview.styles';
+import CollectionItem from '../collection-item/collection-item.component';
+const CollectionPreview = ({ title, items }: any) => {
   return (
     <StyledCollectionPreview>
       <StyledTitle>{title.toUpperCase()}</StyledTitle>
@@ -13,7 +13,7 @@ const CollectionPreview = ({ title, items }) => {
         {items
           .filter((item, idx) => idx < 4)
           .map(({ ...itemProps }) => (
-            <CollectionItem {...itemProps} key={itemProps.id}/>
+            <CollectionItem {...itemProps} key={itemProps.id} />
           ))}
         {/* 
   POTENTIAL PROBLEM: 

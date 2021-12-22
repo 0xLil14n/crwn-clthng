@@ -1,28 +1,28 @@
-import React from "react";
-import { StyledSignIn, StyledButtonContainer } from "./sign-in.style";
-import FormInput from "../form-input/form-input.component";
-import CustomButton from "../custom-button/custom-button.component";
-import { signInWithGoogle, auth } from "../firebase/firebase.utils";
-import { signInWithEmailAndPassword } from "@firebase/auth";
+import React from 'react';
+import { StyledSignIn, StyledButtonContainer } from './sign-in.style';
+import FormInput from '../form-input/form-input.component';
+import CustomButton from '../custom-button/custom-button.component';
+import { signInWithGoogle, auth } from '../firebase/firebase.utils';
+import { signInWithEmailAndPassword } from '@firebase/auth';
 
 class SignIn extends React.Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     };
   }
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("handling submit");
+    console.log('handling submit');
     const { email, password } = this.state;
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      this.setState({ email: "", password: "" });
+      this.setState({ email: '', password: '' });
     } catch (e) {
-      console.log("Error logging in: ", e);
+      console.log('Error logging in: ', e);
     }
   };
 
@@ -32,24 +32,12 @@ class SignIn extends React.Component {
   };
 
   render() {
-    const inputs = ["email", "password"];
+    const inputs = ['email', 'password'];
     return (
       <StyledSignIn>
-        <h2 >I already have an account</h2>
-        <span >Sign in with your email and password</span>
+        <h2>I already have an account</h2>
+        <span>Sign in with your email and password</span>
         <form onSubmit={this.handleSubmit}>
-          {inputs.map((input) => (
-            <>
-              <FormInput
-                handleChange={this.handleChange}
-                name={input}
-                value={this.state.email}
-                required={true}
-                label={input}
-              />
-            </>
-          ))}
-
           <FormInput
             handleChange={this.handleChange}
             name="email"
@@ -71,7 +59,6 @@ class SignIn extends React.Component {
               Sign In With Google
             </CustomButton>
           </StyledButtonContainer>
-          
         </form>
       </StyledSignIn>
     );

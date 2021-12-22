@@ -1,29 +1,29 @@
-import React from "react";
-import FormInput from "../form-input/form-input.component";
-import CustomButton from "../custom-button/custom-button.component";
-import { auth, createUserProfileDocument } from "../firebase/firebase.utils";
-import { createUserWithEmailAndPassword } from "@firebase/auth";
+import React from 'react';
+import FormInput from '../form-input/form-input.component';
+import CustomButton from '../custom-button/custom-button.component';
+import { auth, createUserProfileDocument } from '../firebase/firebase.utils';
+import { createUserWithEmailAndPassword } from '@firebase/auth';
 import {
   StyledSignUp,
   StyledTitle,
   StyledDescription,
   StyledSignUpForm,
-} from "./sign-up.styles";
+} from './sign-up.styles';
 class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
-      displayName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      displayName: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
     };
   }
   handleSubmit = async (event) => {
     event.preventDefault();
     const { displayName, email, password, confirmPassword } = this.state;
     if (password != confirmPassword) {
-      alert("passwords don't match");
+      alert('passwords dont match');
       return;
     }
     try {
@@ -34,13 +34,13 @@ class SignUp extends React.Component {
       );
       await createUserProfileDocument(user, { displayName });
       this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
+        displayName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
       });
     } catch (error) {
-      console.log("Error fetching or creating user: ", error);
+      console.log('Error fetching or creating user: ', error);
     }
   };
   handleChange = (event) => {

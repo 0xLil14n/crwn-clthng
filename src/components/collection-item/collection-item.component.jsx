@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import {
   StyledCollectionItem,
   StyledImage,
   StyledCollectionFooter,
   StyledName,
   StyledPrice,
-} from "./collection-item.styles";
-const CollectionItem = ({ id, name, price, imageUrl }) => (
+} from './collection-item.styles';
+const CollectionItem = ({ id, name, price, imageUrl }: any) => (
   <StyledCollectionItem>
     <StyledImage imageUrl={imageUrl} />
     <StyledCollectionFooter>

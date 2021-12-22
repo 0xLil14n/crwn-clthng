@@ -1,10 +1,10 @@
-import React from "react";
-import { StyledHomepage } from "./homepage.styles";
-import Directory from "../../components/directory/directory.component";
+import React from 'react';
+import { StyledHomepage } from './homepage.styles';
+import Directory from '../../components/directory/directory.component';
 
 const HomePage = () => (
   <StyledHomepage>
-    <Directory/>
+    <Directory />
   </StyledHomepage>
 );
 
