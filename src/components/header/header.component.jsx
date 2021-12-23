@@ -9,6 +9,8 @@ import {
   StyledOption,
 } from './header.styles';
 import { auth } from '../../components/firebase/firebase.utils';
+import CartIcon from '../cart-icon/cart-icon.component';
+
 const Header = ({ currentUser }: any) => (
   <StyledHeader>
     <StyledLink to="/">
@@ -23,6 +25,7 @@ const Header = ({ currentUser }: any) => (
         <StyledOptionLink to="/signin">Sign In</StyledOptionLink>
       )}
     </StyledOptions>
+    <CartIcon />
   </StyledHeader>
 );
 
