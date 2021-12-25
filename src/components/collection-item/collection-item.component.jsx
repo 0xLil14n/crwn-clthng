@@ -14,7 +14,7 @@ const CollectionItem = ({ item, addItem }: any) => {
         <StyledName>{name}</StyledName>
         <StyledPrice>${price}</StyledPrice>
       </StyledCollectionFooter>
-      <StyledButton onClick={() => addItem({ item })} inverted>
+      <StyledButton onClick={() => addItem(item)} inverted>
         Add to cart
       </StyledButton>
     </StyledCollectionItem>

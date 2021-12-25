@@ -1,17 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import SHOP_DATA from '../../pages/shop/shop.data';
-
+import CartItem from '../cart-item/cart-item.component';
 import CustomButton from '../custom-button/custom-button.component';
-const CartDropdown = () => {
-  const cartItems = SHOP_DATA[0].items;
-  const qty = 1;
+const CartDropdown = ({ cartItems }) => {
+  console.log('CARTITEM NAME:', cartItems[0]);
   return (
     <StyledCart>
-      {cartItems.map(({ id, ...cartItemProps }) => (
-        <StyledCartItems key={id}>A</StyledCartItems>
+      {cartItems.map((cartItem) => (
+        <StyledCartItems key={cartItem.id} item={cartItem} />
       ))}
-      asdf
       <StyledButton>Checkout</StyledButton>
     </StyledCart>
   );
@@ -33,10 +32,15 @@ const StyledCart = styled.div`
 const StyledButton = styled(CustomButton)`
   margin-top: auto;
 `;
-const StyledCartItems = styled.div`
+const StyledCartItems = styled(CartItem)`
   height: 240px;
   display: flex;
   flex-direction: column;
   overflow: scroll;
 `;
-export default CartDropdown;
+
+const mapStateToProps = ({ cart: { cartItems } }) => ({
+  cartItems,
+});
+
+export default connect(mapStateToProps)(CartDropdown);
