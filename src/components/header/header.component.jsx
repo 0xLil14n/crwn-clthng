@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 import {
   StyledHeader,
   StyledOptionLink,
@@ -12,6 +13,8 @@ import { auth } from '../../components/firebase/firebase.utils';
 import CartIcon from '../cart-icon/cart-icon.component';
 
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
 
 const Header = ({ currentUser, hidden }: any) => (
   <StyledHeader>
@@ -32,9 +35,9 @@ const Header = ({ currentUser, hidden }: any) => (
   </StyledHeader>
 );
 
-const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
-  currentUser,
-  hidden,
+const mapStateToProps = (state) => ({
+  currentUser: selectCurrentUser(state),
+  hidden: selectCartHidden(state),
 });
 
 export default connect(mapStateToProps)(Header);
