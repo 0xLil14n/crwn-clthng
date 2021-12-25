@@ -1,10 +1,8 @@
 import React from 'react';
-import {
-  StyledCollectionPreview,
-  StyledPreview,
-  StyledTitle,
-} from './collection-preview.styles';
+import styled from 'styled-components';
+
 import CollectionItem from '../collection-item/collection-item.component';
+
 const CollectionPreview = ({ title, items }: any) => {
   return (
     <StyledCollectionPreview>
@@ -26,4 +24,19 @@ const CollectionPreview = ({ title, items }: any) => {
     </StyledCollectionPreview>
   );
 };
+
+export const StyledPreview = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+export const StyledTitle = styled.h1`
+  font-size: 28px !important;
+  font-weight: bold !important;
+`;
+export const StyledCollectionPreview = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+`;
+
 export default CollectionPreview;
