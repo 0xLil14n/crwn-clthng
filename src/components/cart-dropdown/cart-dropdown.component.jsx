@@ -4,6 +4,9 @@ import styled from 'styled-components';
 import SHOP_DATA from '../../pages/shop/shop.data';
 import CartItem from '../cart-item/cart-item.component';
 import CustomButton from '../custom-button/custom-button.component';
+
+import { selectCartItems } from '../../redux/cart/cart.selectors';
+
 const CartDropdown = ({ cartItems }) => {
   console.log('CARTITEM NAME:', cartItems[0]);
   return (
@@ -39,8 +42,8 @@ const StyledCartItems = styled(CartItem)`
   overflow: scroll;
 `;
 
-const mapStateToProps = ({ cart: { cartItems } }) => ({
-  cartItems,
+const mapStateToProps = (state) => ({
+  cartItems: selectCartItems(state),
 });
 
 export default connect(mapStateToProps)(CartDropdown);
