@@ -1,17 +1,26 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import CustomButton from '../custom-button/custom-button.component';
+import { addItem } from '../../redux/cart/cart.actions';
 
-const CollectionItem = ({ id, name, price, imageUrl }: any) => (
-  <StyledCollectionItem>
-    <StyledImage imageUrl={imageUrl} />
-    <StyledCollectionFooter>
-      <StyledName>{name}</StyledName>
-      <StyledPrice>${price}</StyledPrice>
-    </StyledCollectionFooter>
-    <StyledButton inverted>ADD TO CART</StyledButton>
-  </StyledCollectionItem>
-);
+const CollectionItem = ({ item, addItem }: any) => {
+  const { name, price, imageUrl } = item;
+
+  return (
+    <StyledCollectionItem>
+      <StyledImage imageUrl={imageUrl} />
+      <StyledCollectionFooter>
+        <StyledName>{name}</StyledName>
+        <StyledPrice>${price}</StyledPrice>
+      </StyledCollectionFooter>
+      <StyledButton onClick={() => addItem({ item })} inverted>
+        Add to cart
+      </StyledButton>
+    </StyledCollectionItem>
+  );
+};
+
 const StyledButton = styled(CustomButton)`
   width: 80%;
   opacity: 0.7;
@@ -61,5 +70,8 @@ const StyledCollectionItem = styled.div`
     }
   }
 `;
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
+});
 
-export default CollectionItem;
+export default connect(null, mapDispatchToProps)(CollectionItem);

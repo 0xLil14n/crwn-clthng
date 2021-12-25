@@ -10,8 +10,8 @@ const CollectionPreview = ({ title, items }: any) => {
       <StyledPreview>
         {items
           .filter((item, idx) => idx < 4)
-          .map(({ ...itemProps }) => (
-            <CollectionItem {...itemProps} key={itemProps.id} />
+          .map((item) => (
+            <CollectionItem item={item} key={item.id} />
           ))}
         {/* 
   POTENTIAL PROBLEM: 
