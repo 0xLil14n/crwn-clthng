@@ -6,10 +6,10 @@ import styled from 'styled-components';
 import SHOP_DATA from '../../pages/shop/shop.data';
 import CartItem from '../cart-item/cart-item.component';
 import CustomButton from '../custom-button/custom-button.component';
-
+import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 
-const CartDropdown = ({ cartItems, history }) => {
+const CartDropdown = ({ cartItems, history, dispatch }) => {
   console.log('CARTITEM NAME:', cartItems[0]);
   return (
     <StyledCart>
@@ -20,7 +20,12 @@ const CartDropdown = ({ cartItems, history }) => {
       ) : (
         <EmptyMessage> Your Cart is Empty! </EmptyMessage>
       )}
-      <StyledButton onClick={() => history.push('/checkout')}>
+      <StyledButton
+        onClick={() => {
+          history.push('/checkout');
+          dispatch(toggleCartHidden());
+        }}
+      >
         Checkout
       </StyledButton>
     </StyledCart>
