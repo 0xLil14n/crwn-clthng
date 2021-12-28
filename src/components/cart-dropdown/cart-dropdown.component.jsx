@@ -13,13 +13,15 @@ const CartDropdown = ({ cartItems, history, dispatch }) => {
   console.log('CARTITEM NAME:', cartItems[0]);
   return (
     <StyledCart>
-      {cartItems.length ? (
-        cartItems.map((cartItem) => (
-          <StyledCartItems key={cartItem.id} item={cartItem} />
-        ))
-      ) : (
-        <EmptyMessage> Your Cart is Empty! </EmptyMessage>
-      )}
+      <StyledCartItems>
+        {cartItems.length ? (
+          cartItems.map((cartItem) => (
+            <CartItem key={cartItem.id} item={cartItem} />
+          ))
+        ) : (
+          <EmptyMessage> Your Cart is Empty! </EmptyMessage>
+        )}
+      </StyledCartItems>
       <StyledButton
         onClick={() => {
           history.push('/checkout');
@@ -52,7 +54,8 @@ const StyledCart = styled.div`
 const StyledButton = styled(CustomButton)`
   margin-top: auto;
 `;
-const StyledCartItems = styled(CartItem)`
+
+const StyledCartItems = styled.div`
   height: 240px;
   display: flex;
   flex-direction: column;
