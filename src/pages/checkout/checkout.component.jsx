@@ -36,6 +36,7 @@ const CheckoutPage = ({ cartItems, total }) => (
     </Total>
   </StyledCheckoutPage>
 );
+
 const Total = styled.div`
   margin-top: 30px;
   margin-left: auto;
@@ -73,9 +74,3 @@ const mapStateToProps = createStructuredSelector({
 });
 
 export default connect(mapStateToProps)(CheckoutPage);
-
-// .total {
-//   margin-top: 30px;
-//   margin-left: auto;
-//   font-size: 36px;
-// }
