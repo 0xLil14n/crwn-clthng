@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage'; // local Storage object on brow
 import userReducer from './user/user.reducer';
 import cartReducer from './cart/cart.reducer';
 import directoryReducer from './directory/directory.reducer';
+import shopReducer from './shop/shop.reducer';
 
 // base reducer object that represents the overarching state of our application
 // all reducers will go into here
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   cart: cartReducer,
   directory: directoryReducer,
+  shop: shopReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
